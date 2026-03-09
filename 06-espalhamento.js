@@ -61,3 +61,29 @@ console.log('-'.repeat(80))
 
 // Exibindo ambos os carros
 console.log({carro1, carro2})
+
+/*
+  PROBLEMA: juntar dois ou mais vetores em um terceiro vetor
+*/
+const frutas = ['maçã', 'banana', 'laranja', 'uva']
+const verduras = ['alface', 'couve', 'rúcula', 'acelga']
+
+const hortifruti = [...frutas, ...verduras]
+
+console.log('-'.repeat(80))
+console.log({hortifruti})
+
+/*
+  PROBLEMA: declarar uma função capaz de receber um número arbitrário
+  de parâmetros
+*/
+function soma(...nums) {
+  // nums é recebido dentro da função como um vetor
+  let resultado = 0
+  for(let n of nums) resultado += n
+  return resultado
+}
+
+console.log('-'.repeat(80))
+console.log(`Soma de 4 números: ${soma(1, 2, 3, 4)}`)
+console.log(`Soma de 7 números: ${soma(11, 22, 33, 44, 55, 66, 77)}`)
