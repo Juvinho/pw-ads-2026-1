@@ -1,0 +1,51 @@
+import { useRef } from 'react'
+
+function App() {
+  const raioMaiorRef = useRef(null)
+  const raioMenorRef = useRef(null)
+  const resultadoRef = useRef(null)
+
+  function onChange() {
+    const raioMaior = raioMaiorRef.current.value
+    const raioMenor = raioMenorRef.current.value
+    const area = Number(raioMaior) * Number(raioMenor) * Math.PI
+    resultadoRef.current.textContent =
+      'Área: ' + area.toLocaleString('pt-br', {
+        minimumFractionDigits: 4,
+        maximumFractionDigits: 4,
+      })
+  }
+
+  return (
+    <div>
+      <h1>Cálculo da área de uma elipse</h1>
+      <form>
+        <div>
+          <label>
+            <span>Medida do raio maior:</span><br />
+            <input
+              id="raio-maior"
+              type="number"
+              ref={raioMaiorRef}
+              onInput={onChange}
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            <span>Medida do raio menor:</span><br />
+            <input
+              id="raio-menor"
+              type="number"
+              ref={raioMenorRef}
+              onInput={onChange}
+            />
+          </label>
+        </div>
+        <div id="resultado" ref={resultadoRef}></div>
+      </form>
+    </div>
+  )
+}
+
+export default App
